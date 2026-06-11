@@ -1,0 +1,136 @@
+:root {
+    --bg-cor: #0f172a;
+    --card-bg: #1e293b;
+    --texto-cor: #f1f5f9;
+    --destaque-cor: #3b82f6;
+    --accent: #10b981;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-cor);
+    color: var(--texto-cor);
+    line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    padding: 2rem 0;
+    text-align: center;
+    border-bottom: 2px solid var(--destaque-cor);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.filtro-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 2rem 0;
+}
+
+.filtro-btn {
+    background-color: var(--card-bg);
+    color: var(--texto-cor);
+    border: 2px solid transparent;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.filtro-btn:hover, .filtro-btn.ativo {
+    background-color: var(--destaque-cor);
+    border-color: #60a5fa;
+}
+
+.jogos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    padding-bottom: 3rem;
+}
+
+.jogo-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.jogo-card:hover {
+    transform: translateY(-5px);
+}
+
+.jogo-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.jogo-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.jogo-info h2 {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+.plataforma {
+    font-size: 0.85rem;
+    color: var(--destaque-cor);
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.descricao {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    margin-bottom: 15px;
+}
+
+.jogo-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.nota {
+    background-color: var(--accent);
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .filtro-nav {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 0 10px;
+    }
+    .filtro-btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
