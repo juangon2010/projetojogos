@@ -126,5 +126,11 @@ header {
 @media (max-width: 768px) {
     .filtro-nav {
         flex-wrap: wrap;
+        gap: 10px;
+        padding: 0 10px;
+    }
+    .filtro-btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
     }
 }
