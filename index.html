@@ -1,21 +1,13 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GamerHub - Melhores Jogos</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <div class="container">
-            <h1>🎮 GamerHub</h1>
-            <p>Os maiores sucessos exclusivos do PlayStation, Xbox, PC, Switch e Celular</p>
-        </div>
-    </header>
+<header>
+    <div class="container">
+        <h1>🎮 GamerHub</h1>
+        <p>Os maiores sucessos exclusivos do PlayStation, Xbox, PC, Switch e Celular</p>
+    </div>
+</header>
 
-    <main class="container">
-        <!-- Navegação por Categorias Expandida -->
+<main class="container">
+    <!-- Controle do CRUD e Filtros -->
+    <div class="crud-header">
         <nav class="filtro-nav">
             <button class="filtro-btn ativo" data-categoria="todos">Todos</button>
             <button class="filtro-btn" data-categoria="playstation">Playstation</button>
@@ -24,19 +16,79 @@
             <button class="filtro-btn" data-categoria="computador">Computador</button>
             <button class="filtro-btn" data-categoria="celular">Celular</button>
         </nav>
+        <button id="btn-abrir-modal" class="btn-principal">➕ Adicionar Novo Jogo</button>
+    </div>
 
-        <!-- Grade de Jogos -->
-        <section class="jogos-grid" id="jogos-container">
-            <!-- Os cards serão injetados via JavaScript -->
-        </section>
-    </main>
+    <!-- Grade de Jogos -->
+    <section class="jogos-grid" id="jogos-container">
+        <!-- Os cards serão injetados via JavaScript -->
+    </section>
+</main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 GamerHub - Todos os direitos reservados.</p>
-        </div>
-    </footer>
+<!-- MODAL DO FORMULÁRIO (CRIAR / EDITAR) -->
+<div class="modal-overlay" id="modal-jogo">
+    <div class="modal-content">
+        <h2 id="modal-titulo">🎮 Cadastrar Novo Jogo</h2>
+        <form id="form-jogo">
+            <input type="hidden" id="jogo-id">
+            
+            <div class="form-group">
+                <label for="titulo">Título do Jogo</label>
+                <input type="text" id="titulo" required placeholder="Ex: God of War">
+            </div>
 
-    <script src="script.js"></script>
-</body>
-</html>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="plataforma">Plataforma</label>
+                    <select id="plataforma" required>
+                        <option value="playstation">Playstation</option>
+                        <option value="xbox">Xbox</option>
+                        <option value="nintendo">Nintendo Switch</option>
+                        <option value="computador">Computador</option>
+                        <option value="celular">Celular</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exclusivo">Selo de Exclusividade</label>
+                    <input type="text" id="exclusivo" required placeholder="Ex: Exclusivo PS5">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="descricao">Descrição</label>
+                <textarea id="descricao" rows="3" required placeholder="Fale um pouco sobre o jogo..."></textarea>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="nota">Nota</label>
+                    <input type="text" id="nota" required placeholder="Ex: 9.5/10">
+                </div>
+                <div class="form-group">
+                    <label for="ano">Ano</label>
+                    <input type="number" id="ano" required placeholder="Ex: 2026">
+                </div>
+                <div class="form-group">
+                    <label for="players">Players / Comunidade</label>
+                    <input type="text" id="players" required placeholder="Ex: Single-player">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="imagem">URL da Imagem de Capa</label>
+                <input type="file" id="imagem" required>
+            </div>
+
+            <div class="modal-acoes">
+                <button type="button" class="btn-secundario" id="btn-fechar-modal">Cancelar</button>
+                <button type="submit" class="btn-principal" id="btn-salvar">Salvar Jogo</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 GamerHub - Todos os direitos reservados.</p>
+    </div>
+</footer>

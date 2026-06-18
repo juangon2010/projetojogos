@@ -1,5 +1,7 @@
-const jogos = [
+// 1. BANCO DE DADOS ATUALIZADO COM LINKS DE IMAGENS QUE NÃO QUEBRAM
+let jogos = [
     {
+        id: 1,
         titulo: "ASTRO BOT",
         plataforma: "playstation",
         exclusivo: "Exclusivo PlayStation 5",
@@ -7,9 +9,10 @@ const jogos = [
         nota: "9.6/10",
         ano: 2024,
         players: "Single-player",
-        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKpaFsjoBbL1-uvfx4zOnQUnmYSeOmswo6xFcq9X_4ig&s=10" 
+        imagem: "https://unsplash.com" 
     },
     {
+        id: 2,
         titulo: "Marvel's Spider-Man 2",
         plataforma: "playstation",
         exclusivo: "Exclusivo PlayStation 5",
@@ -17,9 +20,10 @@ const jogos = [
         nota: "9.5/10",
         ano: 2023,
         players: "Single-player",
-        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjw2_GQvX6Gch-lhsfQE50K9J0FvQnX59BPjxuZcwFJg&s=10" 
+        imagem: "https://unsplash.com" 
     },
     {
+        id: 3,
         titulo: "Halo Infinite",
         plataforma: "xbox",
         exclusivo: "Exclusivo Xbox / PC",
@@ -27,9 +31,10 @@ const jogos = [
         nota: "8.7/10",
         ano: 2021,
         players: "Multiplayer Grátis / Coop",
-        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_EOwkAyGu9430e0YafMwkhcExfS1g5YYa1kMdJ1ULvg&s=10"
+        imagem: "https://unsplash.com"
     },
     {
+        id: 4,
         titulo: "Forza Motorsport",
         plataforma: "xbox",
         exclusivo: "Exclusivo Xbox / PC",
@@ -37,19 +42,21 @@ const jogos = [
         nota: "8.5/10",
         ano: 2023,
         players: "Single-player e Multiplayer",
-        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzsJtVWRn_2krNXEyhtzAnZUSgtTPME3xQKEZZ7GQP5g&s=10"
+        imagem: "https://unsplash.com"
     },
     {
-        titulo: "The Legend of Zelda: Tears of the Kingdom",
+        id: 5,
+        titulo: "The Legend of Zelda",
         plataforma: "nintendo",
         exclusivo: "Exclusivo Nintendo Switch",
         descricao: "Uma aventura épica na terra e nos céus de Hyrule. Crie suas próprias armas e veículos usando novas habilidades incríveis.",
         nota: "9.7/10",
         ano: 2023,
         players: "Single-player",
-        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTErKqnIV8ob_dFbCB5pXQx4WRtdtuKRfIghRTIX3VDnw&s"
+        imagem: "https://unsplash.com"
     },
     {
+        id: 6,
         titulo: "Pokémon Scarlet",
         plataforma: "nintendo",
         exclusivo: "Exclusivo Nintendo Switch",
@@ -57,9 +64,10 @@ const jogos = [
         nota: "8.0/10",
         ano: 2022,
         players: "Single-player e Coop",
-        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_r6rP30jeRq7bVQKwQyPHUepaagt51b67Mo9XH3SRUA&s=10"
+        imagem: "https://unsplash.com"
     },
     {
+        id: 7,
         titulo: "Forza Horizon 5",
         plataforma: "computador",
         exclusivo: "Disponível para PC / Xbox",
@@ -67,9 +75,10 @@ const jogos = [
         nota: "9.3/10",
         ano: 2021,
         players: "Mais de 40 Milhões",
-        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMPyVWg5LDfZvjhXrZahbLqZm5Vz9vFfNPdDebdSocpQ&s=10"
+        imagem: "https://unsplash.com"
     },
     {
+        id: 8,
         titulo: "Counter-Strike 2",
         plataforma: "computador",
         exclusivo: "Exclusivo PC (Steam)",
@@ -77,9 +86,10 @@ const jogos = [
         nota: "9.0/10",
         ano: 2023,
         players: "1.2 Milhão simultâneos",
-        imagem: "https://i.pinimg.com/736x/55/b9/2e/55b92e64100c309f8bd7dbcac3437a1f.jpg"
+        imagem: "https://unsplash.com"
     },
     {
+        id: 9,
         titulo: "Roblox",
         plataforma: "celular",
         exclusivo: "Multiplataforma",
@@ -87,9 +97,10 @@ const jogos = [
         nota: "8.8/10",
         ano: 2006,
         players: "70 Milhões diários",
-        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8BOFgGDPZZovza9EIhSa-2gApr364hnHvYoC9FVfvmg&s"
+        imagem: "https://unsplash.com"
     },
     {
+        id: 10,
         titulo: "Garena Free Fire",
         plataforma: "celular",
         exclusivo: "Exclusivo Mobile",
@@ -97,21 +108,28 @@ const jogos = [
         nota: "9.1/10",
         ano: 2017,
         players: "100 Milhões ativos",
-        imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUaeS0bsa3CHq1NNoYL629100dW6ywUSiJ_QqrvaTIEA&s=10"
-    },
-    
+        imagem: "https://unsplash.com"
+    }
 ];
 
 const container = document.getElementById('jogos-container');
 const botoesFiltro = document.querySelectorAll('.filtro-btn');
+const modal = document.getElementById('modal-jogo');
+const formJogo = document.getElementById('form-jogo');
 
+// 2. FUNÇÃO RENDERIZAR CARDS
 function exibirJogos(jogosParaExibir) {
+    if (!container) return;
     container.innerHTML = '';
     
+    if (jogosParaExibir.length === 0) {
+        container.innerHTML = `<p class="descricao" style="grid-column: 1/-1; text-align: center; margin-top: 2rem;">Nenhum jogo encontrado.</p>`;
+        return;
+    }
+
     jogosParaExibir.forEach(jogo => {
-        const card = document.createElement('div');
+        const card = document.createElement('article');
         card.classList.add('jogo-card');
-        card.setAttribute('data-categoria', jogo.plataforma);
         
         card.innerHTML = `
             <div class="badge-exclusivo">${jogo.exclusivo}</div>
@@ -129,139 +147,113 @@ function exibirJogos(jogosParaExibir) {
                 <div class="jogo-footer">
                     <span class="nota">⭐ ${jogo.nota}</span>
                 </div>
+
+                <div class="acoes-card">
+                    <button class="btn-card btn-editar" onclick="prepararEdicao(${jogo.id})">✏️ Editar</button>
+                    <button class="btn-card btn-excluir" onclick="excluirJogo(${jogo.id})">🗑️ Excluir</button>
+                </div>
             </div>
         `;
-        
         container.appendChild(card);
     });
+}
+
+// 3. LOGICA FILTROS
+function aplicarFiltroAtual() {
+    const botaoAtivo = document.querySelector('.filtro-btn.ativo');
+    const categoria = botaoAtivo ? botaoAtivo.getAttribute('data-categoria') : 'todos';
+    
+    if (categoria === 'todos') {
+        exibirJogos(jogos);
+    } else {
+        const filtrados = jogos.filter(j => j.plataforma === categoria);
+        exibirJogos(filtrados);
+    }
 }
 
 botoesFiltro.forEach(botao => {
     botao.addEventListener('click', () => {
         botoesFiltro.forEach(btn => btn.classList.remove('ativo'));
         botao.classList.add('ativo');
-
-        const categoria = botao.getAttribute('data-categoria');
-
-        if (categoria === 'todos') {
-            exibirJogos(jogos);
-        } else {
-            const jogosFiltrados = jogos.filter(jogo => jogo.plataforma === categoria);
-            exibirJogos(jogosFiltrados);
-        }
+        aplicarFiltroAtual();
     });
 });
 
-document.addEventListener('DOMContentLoaded', () => exibirJogos(jogos));
-} else {
-    const jogosFiltrados = jogos.filter(jogo => jogo.plataforma === categoria);
-    exibirJogos(jogosFiltrados);
-}
-});
-});
-
-document.addEventListener('DOMContentLoaded', () => exibirJogos(jogos));
-// Variável global para saber se estamos editando
-let idEdicao = null;
-
-// Função exibirJogos já com botões de edição e exclusão
-function exibirJogos(jogosParaExibir) {
-const container = document.getElementById('jogos-container');
-container.innerHTML = '';
-
-jogosParaExibir.forEach(jogo => {
-const card = document.createElement('div');
-card.classList.add('jogo-card');
-card.setAttribute('data-categoria', jogo.plataforma);
-
-card.innerHTML = `
-    <div class="badge-exclusivo">${jogo.exclusivo}</div>
-    <img src="${jogo.imagem}" alt="${jogo.titulo}" class="jogo-img">
-    <div class="jogo-info">
-        <span class="plataforma">${jogo.plataforma}</span>
-        <h2>${jogo.titulo}</h2>
-        <p class="descricao">${jogo.descricao}</p>
-        
-        <div class="detalhes-tecnicos">
-            <p>📅 <strong>Ano:</strong> ${jogo.ano}</p>
-            <p>👥 <strong>Players:</strong> ${jogo.players}</p>
-        </div>
-
-        <div class="jogo-footer">
-            <span class="nota">⭐ ${jogo.nota}</span>
-        </div>
-
-        <div class="acoes">
-            <button onclick="editarJogo(${jogo.id})">✏️ Editar</button>
-            <button onclick="excluirJogo(${jogo.id})">🗑️ Excluir</button>
-        </div>
-    </div>
-`;
-
-container.appendChild(card);
-});
+// 4. MODAL EVENTOS
+const btnAbrir = document.getElementById('btn-abrir-modal');
+if(btnAbrir) {
+    btnAbrir.addEventListener('click', () => {
+        formJogo.reset();
+        document.getElementById('jogo-id').value = '';
+        document.getElementById('modal-titulo').innerText = 'Anexar Novo Jogo 🚀';
+        modal.classList.add('ativo');
+    });
 }
 
-// Excluir jogo pelo ID
+const btnFechar = document.getElementById('btn-fechar-modal');
+if(btnFechar) {
+    btnFechar.addEventListener('click', () => {
+        modal.classList.remove('ativo');
+    });
+}
+
+// 5. SALVAR OU CRIAR JOGO
+if(formJogo) {
+    formJogo.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const idInput = document.getElementById('jogo-id').value;
+        const novoJogo = {
+            titulo: document.getElementById('titulo').value,
+            plataforma: document.getElementById('plataforma').value,
+            exclusivo: document.getElementById('exclusivo').value,
+            descricao: document.getElementById('descricao').value,
+            nota: document.getElementById('nota').value,
+            ano: parseInt(document.getElementById('ano').value),
+            players: document.getElementById('players').value,
+            imagem: document.getElementById('imagem').value
+        };
+
+        if (idInput === "") {
+            novoJogo.id = jogos.length > 0 ? Math.max(...jogos.map(j => j.id)) + 1 : 1;
+            jogos.push(novoJogo);
+        } else {
+            const idExistente = parseInt(idInput);
+            const index = jogos.findIndex(j => j.id === idExistente);
+            if (index !== -1) {
+                novoJogo.id = idExistente;
+                jogos[index] = novoJogo;
+            }
+        }
+        modal.classList.remove('ativo');
+        aplicarFiltroAtual();
+    });
+}
+
+// 6. EDITAR E EXCLUIR
+function prepararEdicao(id) {
+    const jogo = jogos.find(j => j.id === id);
+    if (!jogo) return;
+
+    document.getElementById('jogo-id').value = jogo.id;
+    document.getElementById('titulo').value = jogo.titulo;
+    document.getElementById('plataforma').value = jogo.plataforma;
+    document.getElementById('exclusivo').value = jogo.exclusivo;
+    document.getElementById('descricao').value = jogo.descricao;
+    document.getElementById('nota').value = jogo.nota;
+    document.getElementById('ano').value = jogo.ano;
+    document.getElementById('players').value = jogo.players;
+    document.getElementById('imagem').value = jogo.imagem;
+
+    document.getElementById('modal-titulo').innerText = '✏️ Editando: ' + jogo.titulo;
+    modal.classList.add('ativo');
+}
+
 function excluirJogo(id) {
-if (confirm("Deseja excluir este jogo?")) {
-const index = jogos.findIndex(j => j.id === id);
-if (index !== -1) {
-    jogos.splice(index, 1);
-    localStorage.setItem("jogos", JSON.stringify(jogos));
-    exibirJogos(jogos);
-}
-}
+    if (confirm("Você quer mesmo apagar esse jogo?")) {
+        jogos = jogos.filter(j => j.id !== id);
+        aplicarFiltroAtual();
+    }
 }
 
-// Editar jogo pelo ID
-function editarJogo(id) {
-const jogo = jogos.find(j => j.id === id);
-if (!jogo) return;
-
-idEdicao = id;
-
-document.getElementById("titulo").value = jogo.titulo;
-document.getElementById("plataforma").value = jogo.plataforma;
-document.getElementById("exclusivo").value = jogo.exclusivo;
-document.getElementById("descricao").value = jogo.descricao;
-document.getElementById("ano").value = jogo.ano;
-document.getElementById("players").value = jogo.players;
-document.getElementById("nota").value = jogo.nota;
-document.getElementById("imagem").value = jogo.imagem;
-}
-
-// Formulário adicionar/editar
-const form = document.getElementById("form-jogo");
-
-form.addEventListener("submit", (e) => {
-e.preventDefault();
-
-const jogoDados = {
-titulo: document.getElementById("titulo").value,
-plataforma: document.getElementById("plataforma").value,
-exclusivo: document.getElementById("exclusivo").value,
-descricao: document.getElementById("descricao").value,
-ano: Number(document.getElementById("ano").value),
-players: document.getElementById("players").value,
-nota: document.getElementById("nota").value,
-imagem: document.getElementById("imagem").value
-};
-
-if (idEdicao) {
-// Atualiza jogo existente
-const index = jogos.findIndex(j => j.id === idEdicao);
-if (index !== -1) {
-    jogos[index] = { id: idEdicao, ...jogoDados };
-}
-idEdicao = null;
-} else {
-// Adiciona novo jogo
-const novoId = Date.now();
-jogos.push({ id: novoId, ...jogoDados });
-}
-
-localStorage.setItem("jogos", JSON.stringify(jogos));
+// Inicializa a grade
 exibirJogos(jogos);
-form.reset();
-});
